@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calc.css">
+
+    <script>
+        function getvalue7(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "7";
+        }
+
+        function getvalue8(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "8";
+        }
+
+        function getvalue9(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "9";
+        }
+
+        function getvalueDel(){
+            var input=document.getElementById('input');
+            input.value = input.value.slice(0,-1);
+        }
+
+        function getvalue4(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "4";
+        }
+
+        function getvalue5(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "5";
+        }
+
+        function getvalue6(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "6";
+        }
+
+        function getvaluePlus(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "+";
+        }
+
+        function getvalue1(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "1";
+        }
+
+        function getvalue2(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "2";
+        }
+
+        function getvalue3(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "3";
+        }
+
+        function getvalueMinus(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "-";
+        }
+
+        function getvalueDot(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += ".";
+            
+        }
+
+        function getvalue0(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "0";
+        }
+
+        function getvalueDivide(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "/";
+        }
+
+        function getvalueMul(){
+            var input=document.getElementById('input');
+            if (input.value[0]=='W' || input.value[0]=='0'){
+                input.value="";
+            }
+            input.value += "*";
+        }
+
+        function getvalueReset(){
+            var input=document.getElementById('input');
+            input.value = "0";
+            
+        }
+
+        function getvalueEqual()
+        {
+            var input=document.getElementById('input');
+            let lengthString =input.value.length;
+            if(lengthString > 0 && input.value[lengthString-1] == "." || input.value[lengthString-1] == "+" || input.value[lengthString-1] == "-" || input.value[lengthString-1] == "*" || input.value[lengthString-1] == "/"){
+                input.value = "Wrong value";
+            }
+            else if(lengthString > 0 && input.value[0] == "*" || input.value[0] == "/"){
+                input.value = "Wrong value";
+            }
+            else if(lengthString > 0){
+                let text=input.value;
+                if(lengthString==1){
+                    input.value = input.value;
+                }
+                else{
+                    text = text.split("");
+                    var i=0,j=1,res=1;
+                    while(i<text.length && j<text.length){
+                        if((text[i]=="*" || text[i]=="-" || text[i]=="*" || text[i]=="/" || text[i]==".")
+                        && (text[j]=="*" || text[j]=="-" || text[j]=="*" || text[j]=="/" || text[j]==".")){
+                            res=0;
+                            break;
+                        }
+                        i= i+1;
+                        j= j+1;
+                    }
+
+                    if(res==1){
+                        input.value= eval(input.value);
+                    }
+                    else{
+                        input.value = "Wrong value" ;
+                    }
+
+
+
+                }
+            }
+            else{
+                input.value = "";
+            }
+        }
+
+
+        </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="grid text">
+            <p class="text-sec1">calc</p>
+        </div>
+        
+        <div class="grid input">
+            <input type="text" class="input-sec1" id="input">
+        </div>
+
+        <div class="grid button1">
+            <button onclick="getvalue7()" class="calc-button1 Button7">7</button>
+            <button onclick="getvalue8()" class="calc-button1  Button8">8</button>
+            <button onclick="getvalue9()" class="calc-button1 Button9">9</button>
+            <button onclick="getvalueDel()" class="calc-button1 ButtonDel">DEL</button>
+        </div>
+
+        <div class="grid button2">
+            <button onclick="getvalue4()"class="calc-button2 Button4">4</button>
+            <button onclick="getvalue5()" class="calc-button2  Button5">5</button>
+            <button onclick="getvalue6()" class="calc-button2 Button6">6</button>
+            <button onclick="getvaluePlus()" class="calc-button2 ButtonPlus">&plus;</button>
+        </div>
+
+        <div class="grid button3">
+            <button onclick="getvalue1()" class="calc-button3 Button1">1</button>
+            <button onclick="getvalue2()" class="calc-button3  Button2">2</button>
+            <button onclick="getvalue3()" class="calc-button3 Button3">3</button>
+            <button onclick="getvalueMinus()" class="calc-button3 ButtonMinus">&minus;</button>
+        </div>
+
+        <div class="grid button4">
+            <button onclick="getvalueDot()" class="calc-button4 ButtonDot">.</button>
+            <button onclick="getvalue0()" class="calc-button4  Button0">0</button>
+            <button onclick="getvalueDivide()" class="calc-button4 ButtonDivide">/</button>
+            <button onclick="getvalueMul()" class="calc-button4 ButtonMul">&times;</button>
+        </div>
+
+        <div class="grid button5">
+            <button onclick="getvalueReset()" class="calc-button5 ButtonReset">RESET</button>
+            <button onclick="getvalueEqual()"class="calc-button5  Buttonequal">&equals;</button>
+        </div>
+    </div>
+</body>
+</html>
